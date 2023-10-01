@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import "./UserInput.css"
-export default function UserInput() {
+export default function UserInput(props) {
+    
   const initialinput={'current-savings':1000,'yearly-contribution':1200,'expected-return':7,'duration':10}
   const [userinput,setuserinput]=  useState(initialinput)
+  
   const submitHandler=(e)=>{
     e.preventDefault();
+    props.onCalculate(userinput);
   }
   const resetHandler=(e)=>{
     e.preventDefault();
